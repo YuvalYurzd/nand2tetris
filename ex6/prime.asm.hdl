@@ -1,0 +1,49 @@
+@2
+D=A
+@div
+M=D
+(CHECKIFPRIME)
+	@R0
+	D=M
+	@tester
+	M=D
+(LOOP)
+	@div
+	D=M
+	@tester
+	MD=D-M
+	@LOOP
+	D;JGT
+	@FOUND
+	D;JEQ
+	@div
+	MD=M+1
+	@divmufac
+	D=M
+(LOOPTWO)
+	@div
+	D=M
+	@divmures
+	D=M+D
+	@divmufac
+	MD=M-1
+	@LOOPTWO
+	D;JGT
+	@divmures
+	D=M
+	@R0
+	D=M-D
+	@CHECKIFPRIME
+	D;JGE
+	@R1
+	M=1
+	@END
+	0;JMP
+
+(FOUND)
+	@R1
+	M=0
+
+(END)
+	@END
+	0;JMP

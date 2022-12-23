@@ -1,0 +1,49 @@
+@R0
+D=M
+@n
+M=D
+@R1
+M=0
+@F0
+M=0
+@F1
+M=1
+@DONE
+D-1;JEQ
+@END
+D;JEQ
+@2
+D=M
+@n
+M=M-D
+(LOOP)
+	@F0
+	D=M
+	@R1
+	M=D
+	@F1
+	D=M
+	@R1
+	M=M+D
+	@F1
+	D=M
+	@F0
+	M=D
+	@R1
+	D=M
+	@F1
+	M=D
+	@n
+	MD=M-1
+	@LOOP
+	D;JGT
+	@END
+	0;JMP
+
+(DONE)
+	@R1
+	M=1
+
+(END)
+	@END
+	0;JMP
